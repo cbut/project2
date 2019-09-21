@@ -5,57 +5,397 @@ const userSchema = new Schema({
   email: String, // validation for email probably, unique
   password: String, // required
   reports: [{
-  "word_count": {
-    "type": "Number"
-  },
-  "word_count_message": {
-    "type": "String"
-  },
-  "processed_language": {
-    "type": "String"
-  },
-    {
-    "personality":[
-      "trait_id": {
-        "type": "String"
+    word_count: { type: number },
+    Word_count_message: { type: String },
+    processed_language: { type: String },
+    personality: [
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean },
+        children: [
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          }
+        ]
+
       },
-      "name": {
-        "type": "String"
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean },
+        children: [
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          }
+        ]
+
       },
-      "category": {
-        "type": "String"
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean },
+        children: [
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          }
+        ]
+
       },
-      "percentile": {
-        "type": "Number"
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean },
+        children: [
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          }
+        ]
+
       },
-      "significant": {
-        "type": "Boolean"
-      }, "children": [
-        {
-      "trait_id": {
-        "type": "String"
-      },
-      "name": {
-        "type": "String"
-      },
-      "category": {
-        "type": "String"
-      },
-      "percentile": {
-        "type": "Number"
-      },
-      "significant": {
-        "type": "Boolean"
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean },
+        children: [
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          },
+          {
+            trait_id: { type: String },
+            name: { type: String },
+            category: { type: String },
+            percentile: { type: Number },
+            significant: { type: Boolean }
+          }
+        ]
+
       }
-  }
-    ]
-  }
     ],
-  "needs":[],
-  "values": [], 
-  "warnings": []
-  ]
-}, {
+    needs: [
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      }
+    ],
+    values: [
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      },
+      {
+        trait_id: { type: String },
+        name: { type: String },
+        category: { type: String },
+        percentile: { type: Number },
+        significant: { type: Boolean }
+      }
+    ],
+  }]
+},
+  {
     timestamps: true
   });
 
