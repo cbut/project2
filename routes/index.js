@@ -11,7 +11,8 @@ var personalityInsights = new PersonalityInsightsV3({
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express' });
+  console.log(req.user);
+    res.render('index', { title: 'Express', user: req.user });
 });
 
 router.post('/', function (req, res, next) {
