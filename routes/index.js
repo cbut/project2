@@ -24,6 +24,7 @@ router.post("/", function(req, res, next) {
     })
     .then(result => {
       console.log(result);
+      console.log(result.word_count);
       User.create({ reports: [result] });
       res.render("results", result);
       // console.log(JSON.stringify(result, null, 2));
