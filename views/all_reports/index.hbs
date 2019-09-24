@@ -1,0 +1,24 @@
+<p>
+
+    here are reports:<br>
+    {{#each this}}
+    For report with ID {{this._id}}, the big five trait {{this.reports.0.personality.0.name}} is at percentile
+    {{this.reports.0.personality.0.percentile}}, <br>
+    {{/each}}</p>
+
+
+
+
+
+{{!-- <ol>
+  {{#each movies}}
+  <li>{{this.name}}
+    <ol>
+      {{#each this.actors}}
+      <li>{{this}}</li>
+      <li>{{this.name}} + occupation : {{this.occupation}}</li>
+      {{/each}}
+    </ol>
+  </li>
+  {{/each}}
+</ol>  --}}

@@ -17,6 +17,7 @@ mongoose
 
 var indexRouter = require('./routes/index');
 var resultsRouter = require('./routes/results');
+var allReportsRouter = require('./routes/all_reports');
 
 var app = express();
 
@@ -32,6 +33,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/results', resultsRouter);
+app.use('/all_reports', allReportsRouter);
 
 
 
