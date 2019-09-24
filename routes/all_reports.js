@@ -7,7 +7,7 @@ const User = require('../models/user')
 router.get('/', function (req, res, next) {
     User.find({}).then((allTheData) => {
         console.log(allTheData)
-        res.render('all_reports/index', allTheData)
+        res.render('all_reports/index', { reports: allTheData })
 
     })
     // res.send('respond with a resource');

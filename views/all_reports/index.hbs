@@ -1,11 +1,17 @@
 <p>
 
     here are reports:<br>
-    {{#each this}}
-    For report with ID {{this._id}}, the big five trait {{this.reports.0.personality.0.name}} is at percentile
-    {{this.reports.0.personality.0.percentile}}, <br>
-    {{/each}}</p>
+    <ul>
+        {{#each reports}}
+        <li> For report with ID {{this._id}}<br>
+            {{this.reports.0.personality.0.name}}:
+            {{this.reports.0.personality.0.percentile}} percentile <br>
+            {{this.reports.0.personality.0.children.0.name}}:
+            {{this.reports.0.personality.0.children.0.percentile}} percentile</li>
+        {{/each}}
+</p>
 
+</ul>
 
 
 
