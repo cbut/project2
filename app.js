@@ -4,6 +4,7 @@ const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+const flash = require("connect-flash");
 const bcrypt = require("bcrypt");
 const passport = require("passport");
 const LocalStrategy = require("passport-local").Strategy;
@@ -16,7 +17,7 @@ const dbName = 'personality_reports';
 
 // DB connect (and create DB)
 mongoose
-.connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true })
+  .connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true })
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -30,8 +31,11 @@ const authRouter = require('./routes/auth');
 
 const app = express();
 
+// this adds req.flash to every route
+app.use(flash());
+
 app.use(session({
-  secret: "abc", 
+  secret: "abc",
   store: new MongoStore({ // this is going to create the `sessions` collection in the db
     mongooseConnection: mongoose.connection,
     ttl: 24 * 60 * 60 // 1 day
@@ -45,6 +49,7 @@ app.set('view engine', 'hbs');
 
 require('./config/passport.js')
 
+// this among other things adds req.user to every route
 app.use(passport.initialize());
 app.use(passport.session());
 

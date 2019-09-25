@@ -14,7 +14,7 @@ router.get('/login', function (req, res, next) {
 
 // GET /signup 
 router.get('/signup', function (req, res, next) {
-  res.render('auth/signup');
+  res.render('auth/signup', { message: req.flash('message') })
 });
 
 // POST /signup
@@ -24,13 +24,29 @@ router.post('/signup', (req, res, next) => {
   const hashPass = bcrypt.hashSync(password, salt);
 
   let email = req.body.email
-  console.log(req.body)
 
+  function emailIsValid(email) {
+    return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
+  }
+
+  if (!emailIsValid(email)) {
+    req.flash('message', 'email is not in a valid format')
+    res.redirect('/auth/signup')
+  }
+
+  //check also if email already exists
+  //then check that password has at least 6 characters
   User.create({
     email: email,
     password: hashPass
-  }).then(() => {
-    res.redirect('login');
+  }).then((user) => {
+    req.login(user, function (err) {
+      if (!err) {
+        res.redirect('/');
+      } else {
+        //handle error --> NOPE.
+      }
+    })
   })
 });
 
