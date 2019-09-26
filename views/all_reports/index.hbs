@@ -1,14 +1,15 @@
 <p>
 
-    here are reports:<br>
-    <ul>
-        {{#each reports}}
-        <li> For report with ID {{this._id}}<br>
-            {{this.reports.0.personality.0.name}}:
-            {{this.reports.0.personality.0.percentile}} percentile <br>
-            {{this.reports.0.personality.0.children.0.name}}:
-            {{this.reports.0.personality.0.children.0.percentile}} percentile</li>
-        {{/each}}
+  here are reports:<br>
+  <ul>
+    {{#each reports}}
+    <li> For report with ID {{this._id}}<br>
+      {{this.reports.0.personality.0.name}}:
+      {{this.reports.0.personality.0.percentile}} percentile <br>
+      {{this.reports.0.personality.0.children.0.name}}:
+      {{this.reports.0.personality.0.children.0.percentile}} percentile</li>
+    <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
+    {{/each}}
 </p>
 
 </ul>
