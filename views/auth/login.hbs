@@ -1,6 +1,6 @@
-{{#if message}}
+{{!-- {{#if message}}
 <h4 style="color: red;">{{message}}</h4>
-{{/if}}
+{{/if}} --}}
 
 
 <form id="form" action="/auth/login" method="POST">
@@ -12,4 +12,7 @@
   <br>
   <br>
   <button type="submit">Login</button>
+  {{#each messages}}
+  <h4 style="color: red;">{{this}}</h4>
+  {{/each}}
 </form>

@@ -16,15 +16,18 @@ passport.deserializeUser((id, cb) => {
   });
 });
 
-passport.use(new LocalStrategy({ usernameField: 'email' }, (email, password, next) => {
-  User.findOne({ email }, (err, user) => {
-    if (err) {
-      return next(err);
-    }
-    if (!user || !bcrypt.compareSync(password, user.password)) {
-      return next(null, false, { message: "Incorrect email or password" });
-    }
+passport.use(new LocalStrategy({ usernameField: 'email', passReqToCallback: true },
+  (req, email, password, next) => {
+    User.findOne({ email }, (err, user) => {
+      if (err) {
+        return next(err);
+      }
+      if (!user || !bcrypt.compareSync(password, user.password)) {
+        req.flash('message', "Incorrect email or password");
+        return next(null, false);
+      }
 
-    return next(null, user);
-  });
-}));
+      return next(null, user);
+    });
+  }
+));
