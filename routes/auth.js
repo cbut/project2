@@ -2,7 +2,7 @@ var express = require('express');
 var router = express.Router();
 
 const bcrypt = require('bcrypt')
-const bcryptSalt = 10;
+const bcryptSaltRounds = 10;
 const User = require('../models/user')
 
 const passport = require('passport')
@@ -20,7 +20,7 @@ router.get('/signup', function (req, res, next) {
 // POST /signup
 router.post('/signup', (req, res, next) => {
   const password = req.body.password;
-  const salt = bcrypt.genSaltSync(bcryptSalt);
+  const salt = bcrypt.genSaltSync(bcryptSaltRounds);
   const hashPass = bcrypt.hashSync(password, salt);
 
   let email = req.body.email
@@ -29,13 +29,31 @@ router.post('/signup', (req, res, next) => {
     return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)
   }
 
+
+  function validateEmailUniqueness(email) {
+    return User.findOne({ email: email }).then(function (result) {
+      return result === null;
+    });
+  }
+
   if (!emailIsValid(email)) {
-    req.flash('message', 'email is not in a valid format')
+    req.flash('message', 'Email is not in a valid format')
     res.redirect('/auth/signup')
   }
 
-  //check also if email already exists
-  //then check that password has at least 6 characters
+  validateEmailUniqueness(email).then(function (unique) {
+    if (!unique) {
+      req.flash('message', 'Email is already being used');
+      res.redirect('/auth/signup')
+    }
+  });
+
+  if (password.length < 6) {
+    req.flash('message', 'password must be at least 6 characters long')
+    res.redirect('/auth/signup')
+    return
+  }
+
   User.create({
     email: email,
     password: hashPass
@@ -44,16 +62,21 @@ router.post('/signup', (req, res, next) => {
       if (!err) {
         res.redirect('/');
       } else {
-        //handle error --> NOPE.
+        res.render("auth/signup", { message: "Something went wrong" });
       }
     })
   })
+    .catch(error => {
+      next(error)
+    })
 });
 
 // POST /login
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/login"
+  failureRedirect: "/auth/login",
+  failureFlash: true,
+  passReqToCallback: true
 }));
 
 // GET /logout
