@@ -74,9 +74,7 @@ router.post('/signup', (req, res, next) => {
 // POST /login
 router.post("/login", passport.authenticate("local", {
   successRedirect: "/",
-  failureRedirect: "/auth/login",
-  failureFlash: true,
-  passReqToCallback: true
+  failureRedirect: "/auth/login"
 }));
 
 // GET /logout
