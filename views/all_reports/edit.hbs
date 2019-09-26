@@ -1,9 +1,6 @@
-<p>For report with ID{{report.id}}</p>
+<p>Give a new description to this report</p>
 
 <form action="/all_reports/{{report._id}}" method="post">
-
-    {{!-- <input type="text" name="Openness" value="{{report.personality.0.name}}"> --}}
-    <input type="text" name="percentile" placeholder="{{report.personality.0.name}} percentile score"
-        value="{{report.personality.0.percentile}}">
+    <input type="text" name="note" value="{{report.note}}">
     <button type="submit">Submit</button>
 </form>

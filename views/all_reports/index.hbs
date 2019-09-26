@@ -1,32 +1,22 @@
 <p>
 
-  here are reports:<br>
-  <ul>
-    {{#each reports}}
-    <li> For report with ID {{this._id}}<br>
-      {{this.reports.0.personality.0.name}}:
-      {{this.reports.0.personality.0.percentile}} percentile <br>
-      {{this.reports.0.personality.0.children.0.name}}:
-      {{this.reports.0.personality.0.children.0.percentile}} percentile</li>
-    <a href="/all_reports/{{this._id}}/edit">EDIT</a>
-    <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
-    {{/each}}
+    here are reports:<br>
+    <ul>
+        {{#each reports}}
+        <li> Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
+            {{this.reports.0.personality.0.name}}:
+            {{this.reports.0.personality.0.percentile}} percentile <br>
+            {{this.reports.0.personality.1.name}}:
+            {{this.reports.0.personality.1.percentile}} percentile <br>
+            {{this.reports.0.personality.2.name}}:
+            {{this.reports.0.personality.2.percentile}} percentile <br>
+            {{this.reports.0.personality.3.name}}:
+            {{this.reports.0.personality.3.percentile}} percentile <br>
+            {{this.reports.0.personality.4.name}}:
+            {{this.reports.0.personality.4.percentile}} percentile <br>
+
+            <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
+            {{/each}}
 </p>
 <a href="/">click here to go back to front page where you can submit new texts</a>
 </ul>
-
-
-
-
-{{!-- <ol>
-  {{#each movies}}
-  <li>{{this.name}}
-    <ol>
-      {{#each this.actors}}
-      <li>{{this}}</li>
-      <li>{{this.name}} + occupation : {{this.occupation}}</li>
-      {{/each}}
-    </ol>
-  </li>
-  {{/each}}
-</ol>  --}}
