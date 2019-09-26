@@ -1,3 +1,8 @@
+{{#if message}}
+<h4 style="color: red;">{{message}}</h4>
+{{/if}}
+
+
 <form id="form" action="/auth/login" method="POST">
   <label for="email">Email</label><br>
   <input type="text" name="email" placeholder="Your email"><br>

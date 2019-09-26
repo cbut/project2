@@ -9,7 +9,7 @@ const passport = require('passport')
 
 // GET /login 
 router.get('/login', function (req, res, next) {
-  res.render('auth/login');
+  res.render('auth/login', { message: req.flash('message') })
 });
 
 // GET /signup 
