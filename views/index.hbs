@@ -5,4 +5,15 @@
   <textarea name="submittedText" id="submitTextField" placeholder="Your text here ...">
   </textarea>
   <button type="submit">Submit</button>
+
 </form>
+
+<h1>Welcome {{#if user}} {{user.email}} {{else}} Stranger {{/if}} !</h1>
+
+{{#if user}}
+<a href="/auth/logout">Log out</a>
+{{else}}
+<a href="/auth/login">Log in</a>
+<br>
+<a href="/auth/signup">Sign up</a>
+{{/if}}

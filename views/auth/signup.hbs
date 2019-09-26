@@ -1,0 +1,14 @@
+{{#if message}}
+<h4 style="color: red;">{{message}}</h4>
+{{/if}}
+
+<form id="form" action="/auth/signup" method="POST">
+  <label for="email">Email</label><br>
+  <input type="text" name="email" placeholder="Your email"><br>
+  <br>
+  <label for="password">Password</label><br>
+  <input type="password" name="password" placeholder="********">
+  <br>
+  <br>
+  <button type="submit">Create account</button>
+</form>
