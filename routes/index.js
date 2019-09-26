@@ -34,4 +34,9 @@ router.post("/", function(req, res, next) {
     });
 });
 
+// POST /rooms/:room_id
+router.post("/:room_id", function(req, res, next) {
+  res.send("this works");
+});
+
 module.exports = router;
