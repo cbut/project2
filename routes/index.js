@@ -26,6 +26,7 @@ router.post("/", function (req, res, next) {
             console.log(result);
             console.log(result.word_count);
             User.create({ reports: [result] });
+            // update user by using $push mongo functionality
             res.render("results", result);
             // console.log(JSON.stringify(result, null, 2));
         })

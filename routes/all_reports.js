@@ -2,12 +2,13 @@ var express = require("express");
 var router = express.Router();
 
 const User = require("../models/user");
+//write middleware is authenticated to redirect if not 
 
 /* displays results */
 router.get("/", function (req, res, next) {
-    User.find({}).then(allTheData => {
-        console.log(allTheData);
-        res.render("all_reports/index", { reports: allTheData });
+    User.findById(req.user._id).then(user => {
+        console.log(user);
+        res.render("all_reports/index", { reports: user.reports });
     });
     // res.send('respond with a resource');
 });

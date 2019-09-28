@@ -4,16 +4,16 @@
     <ul>
         {{#each reports}}
         <li> Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
-            {{this.reports.0.personality.0.name}}:
-            {{this.reports.0.personality.0.percentile}} percentile <br>
-            {{this.reports.0.personality.1.name}}:
-            {{this.reports.0.personality.1.percentile}} percentile <br>
-            {{this.reports.0.personality.2.name}}:
-            {{this.reports.0.personality.2.percentile}} percentile <br>
-            {{this.reports.0.personality.3.name}}:
-            {{this.reports.0.personality.3.percentile}} percentile <br>
-            {{this.reports.0.personality.4.name}}:
-            {{this.reports.0.personality.4.percentile}} percentile <br>
+            {{this.personality.0.name}}:
+            {{this.personality.0.percentile}} percentile <br>
+            {{this.personality.1.name}}:
+            {{this.personality.1.percentile}} percentile <br>
+            {{this.personality.2.name}}:
+            {{this.personality.2.percentile}} percentile <br>
+            {{this.personality.3.name}}:
+            {{this.personality.3.percentile}} percentile <br>
+            {{this.personality.4.name}}:
+            {{this.personality.4.percentile}} percentile <br>
 
             <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
             {{/each}}
