@@ -23,11 +23,18 @@ router.post("/", function (req, res, next) {
             consumption_preferences: true
         })
         .then(result => {
-            console.log(result);
-            console.log(result.word_count);
-            User.create({ reports: [result] });
-            res.render("results", result);
-            // console.log(JSON.stringify(result, null, 2));
+            console.log("HERE")
+            console.log(result)
+            if (req.user) {
+                console.log(req.user)
+
+                User.findByIdAndUpdate(req.user._id, { $push: { reports: result } }).then(() => {
+                    res.render("results", result);
+                })
+            } else {
+                res.redirect("/index");
+
+            }
         })
         .catch(err => {
             console.log("error:", err);
