@@ -2,15 +2,22 @@ var express = require("express");
 var router = express.Router();
 
 const User = require("../models/user");
-//write middleware is authenticated to redirect if not 
+
+// middleware
+const isAuthenticated = (req, res, next) => {
+    if (req.user) {
+        next()
+    } else {
+        res.redirect('/login')
+    }
+}
 
 /* displays results */
-router.get("/", function (req, res, next) {
+router.get("/", isAuthenticated, function (req, res, next) {
     User.findById(req.user._id).then(user => {
         console.log(user);
         res.render("all_reports/index", { reports: user.reports });
     });
-    // res.send('respond with a resource');
 });
 
 // GET /all_reports/:report_id/delete

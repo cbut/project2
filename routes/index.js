@@ -23,12 +23,11 @@ router.post("/", function (req, res, next) {
             consumption_preferences: true
         })
         .then(result => {
-            console.log(result);
-            console.log(result.word_count);
-            User.create({ reports: [result] });
-            // update user by using $push mongo functionality
-            res.render("results", result);
-            // console.log(JSON.stringify(result, null, 2));
+            if (req.user) {
+                User.findByIdAndUpdate(req.user._id, { $push: { reports: result } })
+            } else {
+                res.render("results", result);
+            }
         })
         .catch(err => {
             console.log("error:", err);
