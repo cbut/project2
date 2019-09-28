@@ -23,10 +23,17 @@ router.post("/", function (req, res, next) {
             consumption_preferences: true
         })
         .then(result => {
+            console.log("HERE")
+            console.log(result)
             if (req.user) {
-                User.findByIdAndUpdate(req.user._id, { $push: { reports: result } })
+                console.log(req.user)
+
+                User.findByIdAndUpdate(req.user._id, { $push: { reports: result } }).then(() => {
+                    res.render("results", result);
+                })
             } else {
-                res.render("results", result);
+                res.redirect("/index");
+
             }
         })
         .catch(err => {
