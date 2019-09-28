@@ -4,8 +4,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   email: String, // validation for email probably, unique
   password: String, // required
-  note: String,
   reports: [{
+    note: String,
     word_count: { type: Number },
     Word_count_message: { type: String },
     processed_language: { type: String },
