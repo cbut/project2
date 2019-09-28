@@ -1,0 +1,6 @@
+<p>Give a new description to this report</p>
+
+<form action="/all_reports/{{report._id}}" method="post">
+    <input type="text" name="note" value="{{report.note}}">
+    <button type="submit">Submit</button>
+</form>

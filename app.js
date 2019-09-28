@@ -28,6 +28,7 @@ mongoose
 const indexRouter = require('./routes/index');
 const resultsRouter = require('./routes/results');
 const authRouter = require('./routes/auth');
+const allReportsRouter = require('./routes/all_reports');
 
 const app = express();
 
@@ -62,6 +63,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/results', resultsRouter);
 app.use('/auth', authRouter);
+app.use('/all_reports', allReportsRouter);
+
+
 
 // catch 404 and forward to error handler
 app.use(function (req, res, next) {
