@@ -14,10 +14,9 @@ const isAuthenticated = (req, res, next) => {
 
 /* displays results */
 router.get("/", isAuthenticated, function (req, res, next) {
-    User.findById(req.user._id).then(user => {
-        console.log(user);
-        res.render("all_reports/index", { reports: user.reports });
-    });
+
+    res.render("all_reports/index", { reports: req.user.reports });
+
 });
 
 // GET /all_reports/:report_id/delete
@@ -30,16 +29,19 @@ router.get("/:report_id/delete", function (req, res, next) {
 
 // GET /all_reports/:report_id/edit  => edit page for the "note" of a report
 router.get("/:report_id/edit", function (req, res, next) {
-    User.findById(req.params.report_id).then(report => {
-        console.log(report);
-        res.render("all_reports/edit", { report });
+    const report = req.user.reports.find(elem => {
+        return elem._id.equals(req.params.report_id);
     });
+    res.render("all_reports/edit", { report });
 });
 
 // POST / all_reports /: report_id    => POST from Edit page, updating the "note" of a report
 router.post("/:report_id", function (req, res, next) {
     let { note } = req.body
-    User.findByIdAndUpdate(req.params.report_id, { note }).then(() => {
+    console.log("post route from all_reports to edit works")
+    User.updateOne({ _id: req.user._id, "reports._id": req.params.report_id }, {
+        $set: { "reports.$.note": note },
+    }).then(() => {
         res.redirect("/all_reports/");
     })
 });
