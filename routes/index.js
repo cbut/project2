@@ -4,14 +4,20 @@ var PersonalityInsightsV3 = require("ibm-watson/personality-insights/v3");
 
 const User = require("../models/user");
 
-var personalityInsights = new PersonalityInsightsV3({
+let personalityInsights = new PersonalityInsightsV3({
     version: "2017-10-13",
     url: "https://gateway-fra.watsonplatform.net/personality-insights/api"
 });
 
+const PersonalityTextSummaries = require('personality-text-summary');
+const v3EnglishTextSummaries = new PersonalityTextSummaries({
+    locale: 'en',
+    version: 'v3'
+});
+
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express', user: req.user });
+    res.render('index', { title: 'Express', user: req.user, textSummary: req.session.textSummary });
 });
 
 router.post("/", function (req, res, next) {
@@ -23,17 +29,19 @@ router.post("/", function (req, res, next) {
             consumption_preferences: true
         })
         .then(result => {
-            console.log("HERE")
+            let textSummary = v3EnglishTextSummaries.getSummary(result);
+            result.summary = textSummary
             console.log(result)
             if (req.user) {
                 console.log(req.user)
-
                 User.findByIdAndUpdate(req.user._id, { $push: { reports: result } }).then(() => {
                     res.render("results", result);
                 })
             } else {
-                res.redirect("/index");
-
+                console.log(textSummary)
+                req.session.textSummary = textSummary
+                res.redirect('/')
+                //res.render("index", { textSummary, user: req.user });
             }
         })
         .catch(err => {
