@@ -5,6 +5,7 @@ const userSchema = new Schema({
   email: String, // validation for email probably, unique
   password: String, // required
   reports: [{
+    summary: { type: String },
     note: String,
     word_count: { type: Number },
     Word_count_message: { type: String },
@@ -46,7 +47,7 @@ const userSchema = new Schema({
         significant: { type: Boolean }
       },
     ],
-  }]
+  }],
 },
   {
     timestamps: true

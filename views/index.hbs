@@ -8,6 +8,10 @@
 
   <h1>Welcome {{#if user}} {{user.email}} {{else}} Stranger {{/if}} !</h1>
 
+  {{#if textSummary}}
+  <p>{{textSummary}}</p>
+  {{/if}}
+
   {{#if user}}
   <a href="/auth/logout">Log out</a>
   <a href="/all_reports">Click here for all reports in database</a>
