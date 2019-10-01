@@ -15,6 +15,8 @@ const mongoose = require('mongoose');
 
 const dbName = 'personality_reports';
 
+require("dotenv").config()
+
 // DB connect (and create DB)
 mongoose
   .connect(`mongodb://localhost/${dbName}`, { useNewUrlParser: true })

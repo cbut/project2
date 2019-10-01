@@ -2,7 +2,8 @@ var PersonalityInsightsV3 = require('ibm-watson/personality-insights/v3');
 
 var personalityInsights = new PersonalityInsightsV3({
     version: '2017-10-13',
-    url: 'https://gateway-fra.watsonplatform.net/personality-insights/api'
+    url: 'https://gateway-fra.watsonplatform.net/personality-insights/api',
+    iam_apikey: process.env.PERSONALITY_INSIGHTS_IAM_APIKEY,
 });
 
 personalityInsights.profile(
