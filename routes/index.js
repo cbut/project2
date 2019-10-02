@@ -31,11 +31,10 @@ router.post("/", function (req, res, next) {
         .then(result => {
             let textSummary = v3EnglishTextSummaries.getSummary(result);
             result.summary = textSummary
-            console.log(result)
             if (req.user) {
                 console.log(req.user)
                 User.findByIdAndUpdate(req.user._id, { $push: { reports: result } }).then(() => {
-                    res.render("results", result);
+                    res.redirect('results/')
                 })
             } else {
                 console.log(textSummary)
