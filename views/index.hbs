@@ -1,23 +1,57 @@
-<h1>{{title}}</h1>
-<p>Welcome to {{title}} / project watson</p>
+<!DOCTYPE html>
+<html lang="en">
 
-<form action="/" method="post">
-  <textarea name="submittedText" id="submitTextField" placeholder="Your text here ...">
-  </textarea>
-  <button type="submit">Submit</button>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/css/bootstrap.min.css"
+    integrity="sha384-GJzZqFGwb1QTTN6wy59ffF1BuGJpLSa9DkKMp0DgiMDm4iYMj70gZWKYbI706tWS" crossorigin="anonymous">
+  <title>EvilTech Recruiting Solutions</title>
+</head>
+
+<body>
+  <!--form -->
+  <form class="form-inline my-2 my-lg-0" action="/" method="post">
+    <div class="form-group">
+      <textarea name="submittedText" id="submitTextField" class="form-control mr-sm-2" rows="3"
+        placeholder="Your text here..." aria-label="Search"></textarea>
+    </div>
+    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+  </form>
+
+
+
+  <!-- Container -->
+  <div class="container">
+    <!-- Quote Section -->
+    <div class="row">
+      <div class="col">
+        <h2>"EvilTech Recruitment: Find the Perfect Fit for Your Vacancies"</h2>
+      </div>
+    </div>
+    <hr>
+  </div>
 
   <h1>Welcome {{#if user}} {{user.email}} {{else}} Stranger {{/if}} !</h1>
 
   {{#if textSummary}}
   <p>{{textSummary}}</p>
   {{/if}}
+  <!-- Footer -->
+  <footer>2019 EvilTech 😈</footer>
 
-  {{#if user}}
-  <a href="/auth/logout">Log out</a>
-  <a href="/all_reports">Click here for all reports in database</a>
-  {{else}}
-  <a href="/auth/login">Log in</a>
-  <br>
-  <a href="/auth/signup">Sign up</a>
-  {{/if}}
-</form>
+  <!-- Bootstrap's JavaScript Files -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.6/umd/popper.min.js"
+    integrity="sha384-wHAiFfRlMFy6i5SRaxvfOCifBUQy1xHdJ/yoi7FRNXMRBu5WHdZYu1hA6ZOblgut"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.2.1/js/bootstrap.min.js"
+    integrity="sha384-B0UglyR+jN6CkvvICOB2joaf5I4l3gm9GU6Hc1og6Ls7i6U/mkkaduKaBhlAXv9k"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>
