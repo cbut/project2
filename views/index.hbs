@@ -12,27 +12,62 @@
 </head>
 
 <body>
-  <!--form -->
-  <form class="form-inline my-2 my-lg-0" action="/" method="post">
-    <div class="form-group">
-      <textarea name="submittedText" id="submitTextField" class="form-control mr-sm-2" rows="3"
-        placeholder="Your text here..." aria-label="Search"></textarea>
+
+  <!-- Jumbotron -->
+  <div class="jumbotron jumbotron-fluid" style="background:url(images/gloves.jpg) no-repeat; background-size: cover;">
+    <div class="text-success text-center my-5">
+      <h1 class="display-4">Recruitment and Job Applications that Work like a Charm</h1>
     </div>
-    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
-  </form>
-
-
-
-  <!-- Container -->
-  <div class="container">
-    <!-- Quote Section -->
-    <div class="row">
-      <div class="col">
-        <h2>"EvilTech Recruitment: Find the Perfect Fit for Your Vacancies"</h2>
+    <!-- Container -->
+    <div class="container">
+      <!-- Quote Section -->
+      <div class="row">
+        <div class="col">
+          {{!-- <h2>EvilTech Recruitment: Find the Perfect Fit for Your Vacancies, Find where You Fit Perfectly, Or <br>
+          Become The Perfect Fit</h2> --}}
+          <h2>EvilTech is a matching service for Applicants and Recruiters based on personality traits</h2>
+        </div>
       </div>
+      <hr>
     </div>
-    <hr>
+
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+
+    <!--form -->
+    <div class="col-sm-7 offset-sm-4 text-center">
+      <form class="form-inline my-2 my-lg-0" action="/" method="post">
+        <div class="form-group">
+          <textarea name="submittedText" id="submitTextField" class="form-control mr-sm-2" rows="12" cols="46"
+            placeholder="Your text here..." aria-label="Search"></textarea>
+        </div>
+        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Submit</button>
+      </form>
+    </div>
+
+    <br>
+    <br>
   </div>
+
+
+
+
+
+
+
+
+
 
   <h1>Welcome {{#if user}} {{user.email}} {{else}} Stranger {{/if}} !</h1>
 
