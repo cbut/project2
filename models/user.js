@@ -4,6 +4,8 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
   email: String, // validation for email probably, unique
   password: String, // required
+  linkedinId: String,
+
   reports: [{
     summary: { type: String },
     note: String,
