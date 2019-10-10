@@ -1,23 +1,65 @@
-<p>
-
-    here are reports:<br>
+<p></p>here are reports:</p><br>
+<div class="mirContainer">
+    {{#each reports}}
     <ul>
-        {{#each reports}}
-        <li> Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
-            {{this.personality.0.name}}:
-            {{this.personality.0.percentile}} percentile <br>
-            {{this.personality.1.name}}:
-            {{this.personality.1.percentile}} percentile <br>
-            {{this.personality.2.name}}:
-            {{this.personality.2.percentile}} percentile <br>
-            {{this.personality.3.name}}:
-            {{this.personality.3.percentile}} percentile <br>
-            {{this.personality.4.name}}:
-            {{this.personality.4.percentile}} percentile <br>
-            {{this.summary}}
+        <div id="container">
+            <h1>Mosha</h1>
+            <div id="card" class="animal-info">
+                Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
+                <ul id="facts">
+                    <li><span>{{this.personality.0.name}}:</span>
+                        <em>{{this.personality.0.percentile}} percentile</em></li> <br>
+                    <li><span>{{this.personality.1.name}}:</span>
+                        <em>{{this.personality.1.percentile}} percentile</em> </li><br>
+                    <li><span>{{this.personality.2.name}}:</span>
+                        <em>{{this.personality.2.percentile}} percentile</em> </li><br>
+                    <li><span>{{this.personality.3.name}}:</span>
+                        <em>{{this.personality.3.percentile}} percentile</em> </li><br>
+                    <li></span>{{this.personality.4.name}}:</span>
+                        <em>{{this.personality.4.percentile}} percentile</em> </li><br>
+                    <p id="summary">{{this.summary}}</p>
+                </ul>
 
-            <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
-            {{/each}}
-</p>
-<a href="/">click here to go back to front page where you can submit new texts</a>
-</ul>
+                <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
+                <a href="/">click here to go back to front page where you can submit new texts</a>
+            </div>
+    </ul>
+    {{/each}}
+</div>
+
+
+
+
+
+
+
+
+
+
+{{!-- <div id="container">
+    <h1>Mosha</h1>
+    <div id="card" class="animal-info">
+
+
+
+        <ul id="facts">
+            <li>
+                <span>Scientific Name</span>: <em>Felis catus</em>
+            </li>
+            <li>
+                <span>Average Length</span>: <em>46 centimeters</em>
+            </li>
+            <li>
+                <span>Average Lifespan</span>: <em>2 – 16 years</em>
+            </li>
+            <li>
+                <span>Habitat</span>: <em>deserts,scrub lands,jungles</em>
+            </li>
+        </ul>
+
+        <p id="summary">Bright orange with distinctive white bars, it's a Persian cat is a long-haired breed of cat
+            characterized by its round face and short muzzle.
+            They reach about 46 centimeters in length and It is also known as the "Persian Longhair" in the
+            English-speaking countries. In the Middle East, region they are widely known as "Iranian cat" and in Iran
+            they are known as "Shirazi cat".
+        </p> --}}
