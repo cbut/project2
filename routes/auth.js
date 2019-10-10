@@ -82,20 +82,17 @@ passport.use(new LinkedInStrategy({
   scope: ['r_emailaddress', 'r_liteprofile'],
 },
   (accessToken, refreshToken, profile, done) => {// to see the structure of the data in received response:
-    console.log("LinkedIn account details:", profile);
-
     User.findOne({ linkedinId: profile.id })
       .then(user => {
         if (user) {
           done(null, user);
           return;
         }
-
-        User.create({ linkedinId: profile.id, email: profile._json.emailAdress })
+        User.create({ linkedinId: profile.id, email: profile.emails[0].value })
           .then(user =>
             done(null, user)
           )
-          .catch(err => done(err)); // closes User.create()
+          .catch(err => done("something is wrong with Linkdin", err)); // closes User.create()
       })
       .catch(err => done(err)); // closes User.findOne()
   }
