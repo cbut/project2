@@ -21,8 +21,12 @@ router.get("/", isAuthenticated, function (req, res, next) {
 
 // GET /all_reports/:report_id/delete
 router.get("/:report_id/delete", function (req, res, next) {
+    console.log(req.params.report_id)
     const toBeDeleted = req.params.report_id;
-    User.findByIdAndRemove(toBeDeleted).then(toBeDeleted => {
+    // User.findByIdAndRemove(toBeDeleted).then(toBeDeleted => {
+    User.updateOne({ _id: req.user._id }, {
+        $pull: { "reports": { _id: req.params.report_id } },
+    }).then(() => {
         res.redirect("/all_reports/");
     });
 });
