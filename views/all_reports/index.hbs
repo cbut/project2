@@ -1,9 +1,9 @@
 <p></p>here are reports:</p><br>
-<div class="mirContainer">
+<div class="cardContainer">
     {{#each reports}}
     <ul>
         <div id="container">
-            <h1>Mosha</h1>
+            <h1>Report Title</h1>
             <div id="card" class="animal-info">
                 Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
                 <ul id="facts">
@@ -15,17 +15,17 @@
                         <em>{{this.personality.2.percentile}} percentile</em> </li><br>
                     <li><span>{{this.personality.3.name}}:</span>
                         <em>{{this.personality.3.percentile}} percentile</em> </li><br>
-                    <li></span>{{this.personality.4.name}}:</span>
+                    <li><span>{{this.personality.4.name}}:</span>
                         <em>{{this.personality.4.percentile}} percentile</em> </li><br>
                     <p id="summary">{{this.summary}}</p>
                 </ul>
 
-                <a href="/all_reports/{{this._id}}/delete">click here to delete this report</a>
-                <a href="/">click here to go back to front page where you can submit new texts</a>
+                <a href="/all_reports/{{this._id}}/delete">delete</a>
             </div>
     </ul>
     {{/each}}
 </div>
+
 
 
 

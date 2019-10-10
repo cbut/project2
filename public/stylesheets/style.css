@@ -52,6 +52,7 @@ span {
 #facts {
   list-style: none;
   padding: 10px;
+  height: 600px;
 }
 
 /* cards */
@@ -62,15 +63,11 @@ span {
   box-shadow: 2px 2px #e0e0d1;
   font-family: sans-serif;
   width: 335px;
+  height: 800px;
 }
 
 #summary {
   padding: 10px;
-}
-
-img {
-  margin: 10px;
-  width: 300px;
 }
 
 #card {
@@ -80,8 +77,11 @@ img {
   width: 300px;
 }
 
-.mir-container {
-  /* display: flex; */
+.cardContainer {
+  display: flex;
   /* justify-content: center; */
-  /* flex-wrap: wrap; */
+  flex-wrap: wrap;
+}
+
+#facts {
 }
