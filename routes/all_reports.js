@@ -15,7 +15,7 @@ const isAuthenticated = (req, res, next) => {
 /* displays results */
 router.get("/", isAuthenticated, function (req, res, next) {
 
-    res.render("all_reports/index", { reports: req.user.reports });
+    res.render("all_reports/index", { reports: req.user.reports, user: req.user });
 
 });
 
