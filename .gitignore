@@ -1,3 +1,4 @@
 node_modules
 ibm-credentials.env
+ibm-credentials-test.env
 .env
