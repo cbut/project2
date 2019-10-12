@@ -1,15 +1,21 @@
 This is the personality report for the text you submitted: <br>
-
-{{personality.0.name}}:
-{{personality.0.percentile}} percentile <br>
-{{personality.1.name}}:
-{{personality.1.percentile}} percentile <br>
-{{personality.2.name}}:
-{{personality.2.percentile}} percentile <br>
-{{personality.3.name}}:
-{{personality.3.percentile}} percentile <br>
-{{personality.4.name}}:
-{{personality.4.percentile}} percentile <br>
-<br>
-<br>
-{{summary}}
+<div class="cardContainer">
+  <ul>
+    <div id="container">
+      <div id="card" class="report-info">
+        <ul id="facts">
+          <li><span>{{lastReport.personality.0.name}}:</span>
+            <em>{{lastReport.personality.0.percentile}} percentile</em></li> <br>
+          <li><span>{{lastReport.personality.1.name}}:</span>
+            <em>{{lastReport.personality.1.percentile}} percentile</em> </li><br>
+          <li><span>{{lastReport.personality.2.name}}:</span>
+            <em>{{lastReport.personality.2.percentile}} percentile</em> </li><br>
+          <li><span>{{lastReport.personality.3.name}}:</span>
+            <em>{{lastReport.personality.3.percentile}} percentile</em> </li><br>
+          <li><span>{{lastReport.personality.4.name}}:</span>
+            <em>{{lastReport.personality.4.percentile}} percentile</em> </li><br>
+          <p id="summary">{{lastReport.summary}}</p>
+        </ul>
+      </div>
+  </ul>
+</div>

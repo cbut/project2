@@ -1,3 +1,5 @@
+<h4>{{errorMessage}}</h4>
+
 <!-- Jumbotron -->
 <div class="gloveImage" style="background:url(images/gloves.jpg) no-repeat; background-size: cover;">
   <div class="text-success text-center my-5">
@@ -23,8 +25,8 @@
   <div class="inputContainer">
     <form action="/" method="post">
       <div class="">
-        <textarea name="submittedText" id="submitTextField" class="" placeholder="Your text here..."
-          aria-label="Search"></textarea>
+        <textarea name="submittedText" id="submitTextField" class="" aria-label="Search"
+          placeholder="Your text here...">{{input}}</textarea>
       </div>
       <button class="btn btn-outline-success inputButton" type="submit">Submit</button>
     </form>

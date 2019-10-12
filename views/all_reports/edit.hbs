@@ -1,6 +1,7 @@
-<p>Give a new description to this report</p>
-
-<form action="/all_reports/{{report._id}}" method="post">
-    <input type="text" name="note" value="{{report.note}}">
-    <button type="submit">Submit</button>
+<form id="edit-note-form" action="/all_reports/{{report._id}}" method="post">
+    <div class="form-group">
+        <label for="note">Note</label><br>
+        <input type="text" class="form-control" name="note" value="{{report.note}}" placeholder="Your note"><br>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </div>
 </form>

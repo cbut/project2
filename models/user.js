@@ -9,6 +9,7 @@ const userSchema = new Schema({
   reports: [{
     summary: { type: String },
     note: String,
+    title: String,
     word_count: { type: Number },
     Word_count_message: { type: String },
     processed_language: { type: String },

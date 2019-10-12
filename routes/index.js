@@ -17,11 +17,24 @@ const v3EnglishTextSummaries = new PersonalityTextSummaries({
 
 /* GET home page. */
 router.get('/', function (req, res, next) {
-    res.render('index', { title: 'Express', user: req.user, textSummary: req.session.textSummary });
+    res.render('index', {
+        title: 'Express',
+        user: req.user,
+        textSummary: req.session.textSummary,
+        errorMessage: req.flash("msg")[0],
+        input: req.flash("inputText")[0]
+    });
 });
 
 router.post("/", function (req, res, next) {
     const inputText = req.body.submittedText;
+    if (inputText.split(" ").length < 100) {
+        req.flash("msg", "Please enter at least 100 words");
+        req.flash("inputText", inputText);
+        res.redirect("/")
+        return
+    }
+
     personalityInsights
         .profile({
             content: inputText,
@@ -32,12 +45,10 @@ router.post("/", function (req, res, next) {
             let textSummary = v3EnglishTextSummaries.getSummary(result);
             result.summary = textSummary
             if (req.user) {
-                console.log(req.user)
                 User.findByIdAndUpdate(req.user._id, { $push: { reports: result } }).then(() => {
                     res.redirect('results/')
                 })
             } else {
-                console.log(textSummary)
                 req.session.textSummary = textSummary
                 res.redirect('/')
                 //res.render("index", { textSummary, user: req.user });
