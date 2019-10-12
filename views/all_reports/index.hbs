@@ -1,10 +1,11 @@
-<p></p>here are reports:</p><br>
 <div class="cardContainer">
     {{#each reports}}
     <ul>
         <div id="container">
-            <h1>Title: {{this.title}}<a href="/all_reports/{{this._id}}/edit_title"> (edit title)</a><br> </h1>
-            <div id="card" class="animal-info">
+            <h5>Title: {{this.title}}</h5>
+            <button id="edit-title-button" type="button" class="btn btn-success"><a id="edit-title"
+                    href="/all_reports/{{this._id}}/edit_title">edit title</a></button><br>
+            <div id="card" class="report-info">
                 Note: {{this.note}}<a href="/all_reports/{{this._id}}/edit"> (edit note)</a><br>
                 <ul id="facts">
                     <li><span>{{this.personality.0.name}}:</span>
@@ -20,7 +21,8 @@
                     <p id="summary">{{this.summary}}</p>
                 </ul>
 
-                <a href="/all_reports/{{this._id}}/delete">delete</a>
+                <button id="delete-button" type="button" class="btn btn-danger"><a id="delete-link"
+                        href="/all_reports/{{this._id}}/delete">delete</a></button>
             </div>
     </ul>
     {{/each}}

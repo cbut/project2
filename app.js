@@ -62,10 +62,22 @@ app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
 
+// middleware to create a variable (we named it "theUser")
+// and to make it available throughout the whole application in all the views
+app.use((req, res, next) => {
+  if (req.user) {
+    res.locals.user = req.user;
+    next();
+  } else {
+    next();
+  }
+})
+
 app.use('/', indexRouter);
 app.use('/results', resultsRouter);
 app.use('/auth', authRouter);
 app.use('/all_reports', allReportsRouter);
+
 
 
 
