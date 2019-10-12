@@ -9,7 +9,7 @@
   </div>
   <br>
   <button type="submit" class="btn btn-success">Create Account</button>
-  {{#each messages}}
-  <h4 style="color: red;">{{this}}</h4>
-  {{/each}}
+  {{#if message}}
+  <h4>{{message}}</h4>
+  {{/if}}
 </form>
